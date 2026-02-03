@@ -1,0 +1,104 @@
+/* ===== RESET ===== */
+
+* {
+  box-sizing: border-box;
+}
+
+/* ===== BASE ===== */
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 1.5rem;
+
+  /* MATRIX GREEN */
+  background-color: #000000;
+
+  /* OFF-BLACK TEXT */
+  color: #00ff66;
+
+  font-family: "IBM Plex Mono", monospace;
+  line-height: 1.6;
+}
+
+/* warstwa z grafiką */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("assets/delfiny.png");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: contain; /* albo cover */
+  opacity: 0.12; /* BARDZO WAŻNE */
+  pointer-events: none;
+  z-index: -1;
+}
+
+
+/* ===== LINKS / NAV ===== */
+
+.nav {
+  margin-bottom: 2rem;
+}
+
+.nav a {
+  color: #00ff66;
+  text-decoration: none;
+  margin-right: 1rem;
+  font-weight: 600;
+}
+
+.nav a:hover,
+.nav a:focus {
+  text-decoration: underline;
+}
+
+/* ===== TERMINAL TEXT ===== */
+
+pre,
+code {
+  font-family: inherit;
+  white-space: pre-wrap;
+}
+
+/* ===== SUBTLE TERMINAL FEEL ===== */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  /* very subtle scanlines */
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.04),
+    rgba(0, 0, 0, 0.04) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+/* ===== ACCESSIBILITY ===== */
+
+a:focus {
+  outline: 2px dashed #00ff66;
+  outline-offset: 4px;
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  .nav a {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+}
